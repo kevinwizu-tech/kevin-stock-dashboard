@@ -36,6 +36,10 @@ body { background:var(--bg); color:var(--text); font-family:-apple-system,BlinkM
 .idx-name { font-size:12px; color:var(--sec); }
 .idx-price { font-size:17px; font-weight:600; margin-top:6px; font-variant-numeric:tabular-nums; }
 .idx-pct { font-size:13px; font-weight:600; margin-top:2px; }
+.vol-card { background:var(--card); border-radius:14px; padding:12px 14px; margin:0 16px 14px; }
+.vol-main { font-size:13px; color:var(--sec); }
+.vol-amt { font-size:18px; font-weight:700; color:var(--text); margin-left:4px; }
+.vol-cmp { font-size:12px; color:var(--sec); margin-top:4px; }
 .content { padding:0 16px; }
 .sec { font-size:13px; color:var(--sec); font-weight:600; letter-spacing:0.3px; margin:22px 2px 8px; }
 .card { background:var(--card); border-radius:16px; padding:4px 0; margin-bottom:16px; overflow:hidden; }
@@ -124,7 +128,7 @@ tr:last-child td { border-bottom:none; }
         <div class="nav-title">股票追踪</div>
         <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">☀️</button>
     </div>
-    <div class="nav-sub">更新于 2026-08-16 21:43:34 · 板块ETF（东财接口降级）</div>
+    <div class="nav-sub">更新于 2026-08-16 23:11:44 · 板块ETF（东财接口降级）</div>
 </header>
 
 <div class="idx-grid"><div class="idx-card"><div class="idx-name">上证指数</div>
@@ -136,6 +140,8 @@ tr:last-child td { border-bottom:none; }
             <div class="idx-pct up">+1.12%</div></div><div class="idx-card"><div class="idx-name">科创50</div>
             <div class="idx-price down">1717.68</div>
             <div class="idx-pct down">-0.00%</div></div></div>
+
+<div class="vol-card"><div class="vol-main">今日两市 <span class="vol-amt">2.14万亿</span></div></div>
 
 <div class="content">
     <div class="card"><div class="summary">
