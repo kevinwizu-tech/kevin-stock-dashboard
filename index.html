@@ -62,9 +62,11 @@ tr:last-child td { border-bottom:none; }
 .col { background:var(--card); border-radius:16px; padding:14px; }
 .col-title { font-size:13px; font-weight:600; margin-bottom:8px; }
 .col-title.up { color:var(--up); } .col-title.down { color:var(--down); }
-.srow { display:flex; justify-content:space-between; padding:7px 0; border-bottom:0.5px solid var(--border-lt); font-size:13px; }
-.srow:last-child { border-bottom:none; }
-.sname { color:var(--text); } .spct { font-variant-numeric:tabular-nums; font-weight:600; }
+.srow { display:flex; justify-content:space-between; padding:6px 0 2px; font-size:13px; }
+.srow-block { padding:4px 0 6px; border-bottom:0.5px solid var(--border-lt); }
+.srow-block:last-child { border-bottom:none; }
+.sname { color:var(--text); font-weight:600; } .spct { font-variant-numeric:tabular-nums; font-weight:600; }
+.sector-top3 { font-size:11px; color:var(--tert); margin-top:3px; line-height:1.4; }
 .cons-row { background:var(--card); border-radius:16px; padding:14px; margin-bottom:8px; }
 .cons-sector { font-size:14px; font-weight:600; margin-bottom:6px; }
 .cons-stocks { font-size:13px; color:var(--tert); line-height:1.7; }
@@ -134,7 +136,7 @@ tr:last-child td { border-bottom:none; }
         <div class="nav-title">股票追踪</div>
         <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">☀️</button>
     </div>
-    <div class="nav-sub"><span class="live-indicator"><span class="live-dot"></span>实时同步</span> · <span id="syncTime">2026-08-17 18:55:04</span></div>
+    <div class="nav-sub"><span class="live-indicator"><span class="live-dot"></span>实时同步</span> · <span id="syncTime">2026-08-17 19:03:34</span></div>
 </header>
 
 <div class="idx-grid"><div class="idx-card" id="card_sh000001"><div class="idx-name">上证指数</div>
@@ -159,20 +161,77 @@ tr:last-child td { border-bottom:none; }
 
     <button class="btn" onclick="fetchLiveQuotes()">🔄 立即刷新行情</button>
 
-    <div class="sec">板块涨跌排名</div>
+    <div class="sec">板块涨跌排名（过滤微型板块，附前3个股）</div>
     <div class="dual">
-        <div class="col"><div class="col-title up">涨幅前5板块</div><div class="srow"><span class="sname">摩托车</span><span class="spct up">+3.29%</span></div><div class="srow"><span class="sname">机械行业</span><span class="spct up">+3.27%</span></div><div class="srow"><span class="sname">电子器件</span><span class="spct up">+3.13%</span></div><div class="srow"><span class="sname">有色金属</span><span class="spct up">+2.93%</span></div><div class="srow"><span class="sname">发电设备</span><span class="spct up">+2.73%</span></div></div>
-        <div class="col"><div class="col-title down">跌幅前5板块</div><div class="srow"><span class="sname">酿酒行业</span><span class="spct down">-3.06%</span></div><div class="srow"><span class="sname">酒店旅游</span><span class="spct down">-1.16%</span></div><div class="srow"><span class="sname">传媒娱乐</span><span class="spct down">-0.59%</span></div><div class="srow"><span class="sname">公路桥梁</span><span class="spct down">-0.49%</span></div><div class="srow"><span class="sname">综合行业</span><span class="spct down">-0.25%</span></div></div>
+        <div class="col"><div class="col-title up">涨幅前5板块</div><div class="srow-block">
+                    <div class="srow"><span class="sname">机械行业</span><span class="spct up">+3.27%</span></div>
+                    <div class="sector-top3">京城股份<span class="up" style="margin-left:2px;">+10.0%</span> · 合锻智能<span class="up" style="margin-left:2px;">+10.0%</span> · 利君股份<span class="up" style="margin-left:2px;">+10.0%</span></div>
+                </div><div class="srow-block">
+                    <div class="srow"><span class="sname">电子器件</span><span class="spct up">+3.13%</span></div>
+                    <div class="sector-top3">盈方微<span class="up" style="margin-left:2px;">+10.1%</span> · 共进股份<span class="up" style="margin-left:2px;">+10.0%</span> · 通富微电<span class="up" style="margin-left:2px;">+10.0%</span></div>
+                </div><div class="srow-block">
+                    <div class="srow"><span class="sname">有色金属</span><span class="spct up">+2.93%</span></div>
+                    <div class="sector-top3">贵研铂业<span class="up" style="margin-left:2px;">+10.0%</span> · 闽发铝业<span class="up" style="margin-left:2px;">+10.0%</span> · 云南锗业<span class="up" style="margin-left:2px;">+7.9%</span></div>
+                </div><div class="srow-block">
+                    <div class="srow"><span class="sname">发电设备</span><span class="spct up">+2.73%</span></div>
+                    <div class="sector-top3">风范股份<span class="up" style="margin-left:2px;">+10.1%</span> · 思源电气<span class="up" style="margin-left:2px;">+10.0%</span> · ST长园<span class="up" style="margin-left:2px;">+7.3%</span></div>
+                </div><div class="srow-block">
+                    <div class="srow"><span class="sname">玻璃行业</span><span class="spct up">+2.69%</span></div>
+                    <div class="sector-top3">中国巨石<span class="up" style="margin-left:2px;">+4.3%</span> · 凯盛科技<span class="up" style="margin-left:2px;">+3.5%</span> · 光电股份<span class="up" style="margin-left:2px;">+3.4%</span></div>
+                </div></div>
+        <div class="col"><div class="col-title down">跌幅前5板块</div><div class="srow-block">
+                    <div class="srow"><span class="sname">酿酒行业</span><span class="spct down">-3.06%</span></div>
+                    <div class="sector-top3">*ST莫高<span class="up" style="margin-left:2px;">+2.5%</span> · 兰州黄河<span class="up" style="margin-left:2px;">+1.8%</span> · ST椰岛<span class="up" style="margin-left:2px;">+1.6%</span></div>
+                </div><div class="srow-block">
+                    <div class="srow"><span class="sname">酒店旅游</span><span class="spct down">-1.16%</span></div>
+                    <div class="sector-top3">ST云网<span class="up" style="margin-left:2px;">+2.6%</span> · 曲江文旅<span class="up" style="margin-left:2px;">+2.6%</span> · 岭南控股<span class="up" style="margin-left:2px;">+1.1%</span></div>
+                </div><div class="srow-block">
+                    <div class="srow"><span class="sname">传媒娱乐</span><span class="spct down">-0.59%</span></div>
+                    <div class="sector-top3">中文在线<span class="up" style="margin-left:2px;">+1.9%</span> · 湖北广电<span class="up" style="margin-left:2px;">+1.7%</span> · 奥飞娱乐<span class="up" style="margin-left:2px;">+1.6%</span></div>
+                </div><div class="srow-block">
+                    <div class="srow"><span class="sname">家电行业</span><span class="spct down">-0.11%</span></div>
+                    <div class="sector-top3">TCL智家<span class="up" style="margin-left:2px;">+10.0%</span> · 禾盛新材<span class="up" style="margin-left:2px;">+4.9%</span> · 顺钠股份<span class="up" style="margin-left:2px;">+4.6%</span></div>
+                </div><div class="srow-block">
+                    <div class="srow"><span class="sname">医疗器械</span><span class="spct down">-0.11%</span></div>
+                    <div class="sector-top3">戴维医疗<span class="up" style="margin-left:2px;">+20.0%</span> · 尚荣医疗<span class="up" style="margin-left:2px;">+4.9%</span> · 九安医疗<span class="up" style="margin-left:2px;">+3.3%</span></div>
+                </div></div>
     </div>
 
     <div class="sec">主力资金流向（板块）</div>
     <div class="dual">
-        <div class="col"><div class="col-title up">净流入前5</div><div class="srow"><span class="sname">电子器件 <span class="sub up">(+3.13%)</span></span><span class="spct up">+228.49亿</span></div><div class="srow"><span class="sname">机械行业 <span class="sub up">(+3.27%)</span></span><span class="spct up">+95.96亿</span></div><div class="srow"><span class="sname">化工行业 <span class="sub up">(+2.25%)</span></span><span class="spct up">+60.57亿</span></div><div class="srow"><span class="sname">有色金属 <span class="sub up">(+2.93%)</span></span><span class="spct up">+59.05亿</span></div><div class="srow"><span class="sname">电子信息 <span class="sub up">(+2.01%)</span></span><span class="spct up">+39.82亿</span></div></div>
-        <div class="col"><div class="col-title down">净流出前5</div><div class="srow"><span class="sname">酿酒行业 <span class="sub down">(-3.06%)</span></span><span class="spct down">-18.74亿</span></div><div class="srow"><span class="sname">玻璃行业 <span class="sub up">(+2.69%)</span></span><span class="spct down">-8.37亿</span></div><div class="srow"><span class="sname">传媒娱乐 <span class="sub down">(-0.59%)</span></span><span class="spct down">-3.94亿</span></div><div class="srow"><span class="sname">酒店旅游 <span class="sub down">(-1.16%)</span></span><span class="spct down">-3.93亿</span></div><div class="srow"><span class="sname">医疗器械 <span class="sub down">(-0.11%)</span></span><span class="spct down">-2.73亿</span></div></div>
+        <div class="col"><div class="col-title up">净流入前5</div><div class="srow-block">
+                    <div class="srow"><span class="sname">电子器件 <span class="sub up">(+3.13%)</span></span><span class="spct up">+228.49亿</span></div>
+                    <div class="sector-top3">盈方微<span class="up" style="margin-left:2px;">+10.1%</span> · 共进股份<span class="up" style="margin-left:2px;">+10.0%</span> · 通富微电<span class="up" style="margin-left:2px;">+10.0%</span></div>
+                </div><div class="srow-block">
+                    <div class="srow"><span class="sname">机械行业 <span class="sub up">(+3.27%)</span></span><span class="spct up">+95.96亿</span></div>
+                    <div class="sector-top3">京城股份<span class="up" style="margin-left:2px;">+10.0%</span> · 合锻智能<span class="up" style="margin-left:2px;">+10.0%</span> · 利君股份<span class="up" style="margin-left:2px;">+10.0%</span></div>
+                </div><div class="srow-block">
+                    <div class="srow"><span class="sname">化工行业 <span class="sub up">(+2.25%)</span></span><span class="spct up">+60.57亿</span></div>
+                    
+                </div><div class="srow-block">
+                    <div class="srow"><span class="sname">有色金属 <span class="sub up">(+2.93%)</span></span><span class="spct up">+59.05亿</span></div>
+                    <div class="sector-top3">贵研铂业<span class="up" style="margin-left:2px;">+10.0%</span> · 闽发铝业<span class="up" style="margin-left:2px;">+10.0%</span> · 云南锗业<span class="up" style="margin-left:2px;">+7.9%</span></div>
+                </div><div class="srow-block">
+                    <div class="srow"><span class="sname">电子信息 <span class="sub up">(+2.01%)</span></span><span class="spct up">+39.82亿</span></div>
+                    
+                </div></div>
+        <div class="col"><div class="col-title down">净流出前5</div><div class="srow-block">
+                    <div class="srow"><span class="sname">酿酒行业 <span class="sub down">(-3.06%)</span></span><span class="spct down">-18.74亿</span></div>
+                    <div class="sector-top3">*ST莫高<span class="up" style="margin-left:2px;">+2.5%</span> · 兰州黄河<span class="up" style="margin-left:2px;">+1.8%</span> · ST椰岛<span class="up" style="margin-left:2px;">+1.6%</span></div>
+                </div><div class="srow-block">
+                    <div class="srow"><span class="sname">玻璃行业 <span class="sub up">(+2.69%)</span></span><span class="spct down">-8.37亿</span></div>
+                    <div class="sector-top3">中国巨石<span class="up" style="margin-left:2px;">+4.3%</span> · 凯盛科技<span class="up" style="margin-left:2px;">+3.5%</span> · 光电股份<span class="up" style="margin-left:2px;">+3.4%</span></div>
+                </div><div class="srow-block">
+                    <div class="srow"><span class="sname">传媒娱乐 <span class="sub down">(-0.59%)</span></span><span class="spct down">-3.94亿</span></div>
+                    <div class="sector-top3">中文在线<span class="up" style="margin-left:2px;">+1.9%</span> · 湖北广电<span class="up" style="margin-left:2px;">+1.7%</span> · 奥飞娱乐<span class="up" style="margin-left:2px;">+1.6%</span></div>
+                </div><div class="srow-block">
+                    <div class="srow"><span class="sname">酒店旅游 <span class="sub down">(-1.16%)</span></span><span class="spct down">-3.93亿</span></div>
+                    <div class="sector-top3">ST云网<span class="up" style="margin-left:2px;">+2.6%</span> · 曲江文旅<span class="up" style="margin-left:2px;">+2.6%</span> · 岭南控股<span class="up" style="margin-left:2px;">+1.1%</span></div>
+                </div><div class="srow-block">
+                    <div class="srow"><span class="sname">医疗器械 <span class="sub down">(-0.11%)</span></span><span class="spct down">-2.73亿</span></div>
+                    <div class="sector-top3">戴维医疗<span class="up" style="margin-left:2px;">+20.0%</span> · 尚荣医疗<span class="up" style="margin-left:2px;">+4.9%</span> · 九安医疗<span class="up" style="margin-left:2px;">+3.3%</span></div>
+                </div></div>
     </div>
-
-    <div class="sec">各板块前3个股</div>
-    <div class="empty">成分股数据暂不可用（东财接口降级）</div>
 
     <div class="sec">消息追踪 · 利好利空个股表现</div>
     <div class="news-row">
@@ -180,7 +239,7 @@ tr:last-child td { border-bottom:none; }
             <div class="news-stocks"><span class="track-stock">天孚通信 <span class="sub">286.56</span> <span class="up">+11.4%</span></span><span class="track-stock">光库科技 <span class="sub">326.70</span> <span class="up">+4.0%</span></span><span class="track-stock">光迅科技 <span class="sub">199.75</span> <span class="up">+8.1%</span></span></div>
             <div class="derived-item">
                 <div class="derived-head"><span class="derived-sector">光模块</span><span class="derived-reason">CPO规模化→光引擎需求</span></div>
-                <div class="derived-stocks">中际旭创 <span class="sub" style="font-size:11px;">1001.03</span> <span class="up">+8.7%</span>、新易盛 <span class="sub" style="font-size:11px;">466.68</span> <span class="up">+8.6%</span></div></div></div><div class="news-row">
+                <div class="derived-stocks">中际旭创 <span class="sub" style="font-size:11px;">1001.03</span> <span class="up">+6.2%</span>、新易盛 <span class="sub" style="font-size:11px;">466.68</span> <span class="up">+8.6%</span></div></div></div><div class="news-row">
             <div class="news-head"><span class="news-tag tag-good">利好</span><span class="news-title">国产算力扩产·中芯下单超预期</span><span class="news-date">2026-08-14</span></div>
             <div class="news-stocks"><span class="track-stock">中微公司 <span class="sub">387.82</span> <span class="up">+4.7%</span></span></div>
             <div class="derived-item">
